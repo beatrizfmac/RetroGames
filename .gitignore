@@ -1,0 +1,22 @@
+# .NET: saídas de compilação
+bin/
+obj/
+*.user
+*.suo
+.vs/
+TestResults/
+
+# Node / Vite
+node_modules/
+dist/
+
+# Configuração com senha (o modelo versionado é o .env.example)
+.env
+
+# Editores e sistema operacional
+.vscode/*
+!.vscode/extensions.json
+.idea/
+Thumbs.db
+.DS_Store
+*.log
