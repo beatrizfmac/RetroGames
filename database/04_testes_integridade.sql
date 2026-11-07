@@ -13,7 +13,7 @@ USE retrogames_beatriz;
 -- -----------------------------------------------------------------------------
 -- Teste 1: inserir jogo com co_plataforma inexistente
 -- Esperado: Erro 1452 (chave estrangeira)
--- Resultado obtido: (preencher)
+-- Resultado obtido: Erro 1452 (chave estrangeira) - OK, igual ao esperado
 -- -----------------------------------------------------------------------------
 INSERT INTO tb_jogo (no_jogo, ds_jogo, nu_ano_lancamento, vl_preco, qt_estoque, st_ativo, dt_cadastro, co_plataforma, co_condicao_jogo)
 VALUES ('Teste plataforma inexistente', NULL, 1990, 50.00, 1, TRUE, UTC_TIMESTAMP(), 999, 2);
@@ -21,7 +21,7 @@ VALUES ('Teste plataforma inexistente', NULL, 1990, 50.00, 1, TRUE, UTC_TIMESTAM
 -- -----------------------------------------------------------------------------
 -- Teste 2: inserir plataforma com nome já cadastrado
 -- Esperado: Erro 1062 (UNIQUE)
--- Resultado obtido: (preencher)
+-- Resultado obtido: Erro 1062 (UNIQUE) - OK, igual ao esperado
 -- -----------------------------------------------------------------------------
 INSERT INTO tb_plataforma (no_plataforma, no_fabricante, nu_ano_lancamento)
 VALUES ('NES', 'Nintendo', 1983);
@@ -29,14 +29,14 @@ VALUES ('NES', 'Nintendo', 1983);
 -- -----------------------------------------------------------------------------
 -- Teste 3: excluir plataforma que possui jogos (1 = Atari 2600)
 -- Esperado: Erro 1451 (chave estrangeira)
--- Resultado obtido: (preencher)
+-- Resultado obtido: Erro 1451 (chave estrangeira) - OK, igual ao esperado
 -- -----------------------------------------------------------------------------
 DELETE FROM tb_plataforma WHERE co_seq_plataforma = 1;
 
 -- -----------------------------------------------------------------------------
 -- Teste 4: inserir jogo com no_jogo nulo
 -- Esperado: Erro 1048 (NOT NULL)
--- Resultado obtido: (preencher)
+-- Resultado obtido: Erro 1048 (NOT NULL) - OK, igual ao esperado
 -- -----------------------------------------------------------------------------
 INSERT INTO tb_jogo (no_jogo, ds_jogo, nu_ano_lancamento, vl_preco, qt_estoque, st_ativo, dt_cadastro, co_plataforma, co_condicao_jogo)
 VALUES (NULL, NULL, 1990, 50.00, 1, TRUE, UTC_TIMESTAMP(), 1, 2);
@@ -44,7 +44,7 @@ VALUES (NULL, NULL, 1990, 50.00, 1, TRUE, UTC_TIMESTAMP(), 1, 2);
 -- -----------------------------------------------------------------------------
 -- Teste 5: inserir jogo com vl_preco igual a 0
 -- Esperado: Aceito (1 row affected): a regra fica no Service (RN06)
--- Resultado obtido: (preencher)
+-- Resultado obtido: Aceito (1 row affected) - OK, igual ao esperado
 -- -----------------------------------------------------------------------------
 INSERT INTO tb_jogo (no_jogo, ds_jogo, nu_ano_lancamento, vl_preco, qt_estoque, st_ativo, dt_cadastro, co_plataforma, co_condicao_jogo)
 VALUES ('Teste preço zero', NULL, 1990, 0.00, 1, TRUE, UTC_TIMESTAMP(), 1, 2);
