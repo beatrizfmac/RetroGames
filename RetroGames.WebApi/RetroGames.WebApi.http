@@ -1,6 +1,6 @@
-@RetroGames.WebApi_HostAddress = http://localhost:5200
+@RetroGames.WebApi_HostAddress = http://localhost:5080
 
-GET {{RetroGames.WebApi_HostAddress}}/weatherforecast/
+GET {{RetroGames.WebApi_HostAddress}}/openapi/v1.json
 Accept: application/json
 
 ###
